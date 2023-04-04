@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Customer: </h1>
+<br>
+<a href="{% url 'home' %}" class="btn btn-outline-dark" type="button"> Voltar</a>
+<br>
+<br>
+<div class="card" style="width: 25rem;">
+    <div class="card-header">
+        {{ customer.first_name }} {{ customer.last_name }}
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Email:</strong> {{ customer.email }} </li>
+        <li class="list-group-item"><strong>Phone:</strong> {{ customer.phone }} </li>
+        <li class="list-group-item"><strong>Endereço:</strong> {{ customer.address }} </li>
+        <li class="list-group-item"><strong>Cidade:</strong> {{ customer.city }} </li>
+        <li class="list-group-item"><strong>Cep:</strong> {{ customer.zipcode }} </li>
+        <li class="list-group-item"><strong>Estado:</strong> {{ customer.state }} </li>
+    </ul>
+</div>
+<br>
+<button type="button" class="btn btn-warning">Editar</button>
+<button type="button" class="btn btn-success">Salvar</button>
+<a href="{% url 'delete' customer.id %}" type="button" class="btn btn-danger">Deletar</a>
+{% endblock content %}

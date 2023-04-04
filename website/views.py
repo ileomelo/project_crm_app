@@ -65,3 +65,14 @@ def get_customer(request, pk):
     else:
         messages.info(request, "Você precisa estar logado para acessar esta pagina!!")
         return redirect("home")
+
+def delete_customer(request, pk):
+    if request.user.is_authenticated:
+        delete_it = Customer.objects.get(id = pk)
+        delete_it.delete()
+        messages.success(request, 'Deletado com sucesso!!')
+        return redirect("home")
+    else:
+        messages.success(request, "Você precisa estar logado para fazer modificações!!")
+        return redirect("home")
+
