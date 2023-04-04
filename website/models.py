@@ -3,7 +3,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 # Create your models here.
-class Custumer(models.Model):
+class Customer(models.Model):
     # Criado e Modificado
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
