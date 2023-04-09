@@ -20,7 +20,6 @@
     </ul>
 </div>
 <br>
-<button type="button" class="btn btn-warning">Editar</button>
-<button type="button" class="btn btn-success">Salvar</button>
+<a href="{% url 'edit_customer' customer.id %}" type="button" class="btn btn-warning">Editar</a>
 <a href="{% url 'delete' customer.id %}" type="button" class="btn btn-danger">Deletar</a>
 {% endblock content %}

@@ -90,3 +90,16 @@ def new_customer(request):
     else:
         messages.success(request, "Para acessar esta pagina, faça o login")
         return redirect('home')
+
+def edit_customer(request, pk):
+    if request.user.is_authenticated:
+        customer = Customer.objects.get(id=pk)
+        form = AddCustomerForm(request.POST or None, instance=customer)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Editado com sucesso!!")
+            return redirect('home')
+        return render(request, "edit_customer.html", {'form':form})
+    else:
+        messages.success(request, "Houve algum erro, tente novamente!!")
+        return redirect('home')
